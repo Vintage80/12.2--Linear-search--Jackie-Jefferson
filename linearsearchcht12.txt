@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+// Generic linear search function
+template <typename T>
+int linearSearch(T arr[], int size, T key) {
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] == key) {
+            return i;  // Found at index i
+        }
+    }
+    return -1;  // Not found
+}
+
+int main() {
+    // Test with int array
+    int intArray[] = {4, 2, 7, 1, 9};
+    int intSize = sizeof(intArray) / sizeof(intArray[0]);
+    int intKey = 7;
+    std::cout << "int key found at index: " << linearSearch(intArray, intSize, intKey) << std::endl;
+
+    // Test with double array
+    double doubleArray[] = {3.14, 2.71, 6.28, 1.41};
+    int doubleSize = sizeof(doubleArray) / sizeof(doubleArray[0]);
+    double doubleKey = 6.28;
+    std::cout << "double key found at index: " << linearSearch(doubleArray, doubleSize, doubleKey) << std::endl;
+
+    // Test with string array
+    std::string stringArray[] = {"apple", "banana", "cherry", "date"};
+    int stringSize = sizeof(stringArray) / sizeof(stringArray[0]);
+    std::string stringKey = "cherry";
+    std::cout << "string key found at index: " << linearSearch(stringArray, stringSize, stringKey) << std::endl;
+
+    return 0;
+}
